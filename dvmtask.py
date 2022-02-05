@@ -47,8 +47,7 @@ class ATM():
         self.pin = int(input("Enter the four digit pin: "))
         
         with open('name_pins.csv') as csvfile:
-            data = list(csv.reader(csvfile))
-            print(data[2])   
+            data = list(csv.reader(csvfile))        
             n = len(data)
             
         for i in range (1,n):
@@ -68,13 +67,16 @@ class ATM():
                
                 if option == 1:
                     CheckYourBalance()
-                    logging.debug("Checked the account balance")  
+                    logging.debug("Checked the account balance")
+                    break  
                 elif option == 2:
                     Withdraw()
                     logging.debug("Withdrew  from the ATM")
+                    break
                 elif option == 3:
                     Deposit()
                     logging.debug("Deposited in the account")
+                    break
                 elif option == 4:
                     logging.debug("Exited the ATM service")
                     break
@@ -159,15 +161,17 @@ class New_Member():
                         if option == 1:
                             CheckYourBalance()
                             logging.debug("Checked the account balance")
+                            break
                                         
                         elif option == 2:
                             print("Kindly deposit some amount of money before withdrawing")
-                        
                             logging.debug("Failed in withdrawing due to inadequate balance")
+                            break
                 
                         elif option == 3:
                             Deposit()
                             logging.debug("Deposited  in the account")
+                            break
 
                         elif option == 4:
                             logging.debug("Exited the ATM service")
